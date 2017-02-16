@@ -10,6 +10,7 @@
 
 
       <section>
+        @include('flash::message')
         @yield('content')
       </section>
 

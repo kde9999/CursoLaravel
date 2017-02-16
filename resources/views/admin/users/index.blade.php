@@ -31,7 +31,7 @@
 
 
   </td>
-    <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+    <td><a href="{{route('admin.users.destroy',$user->id)}}" onclick="return confirm('seguro que deseas eliminar')"class="btn btn-danger"></a> <a href="{{route('admin.users.edit',$user->id)}}" class="btn btn-warning"></a></td>
 
   </tr>
   @endforeach

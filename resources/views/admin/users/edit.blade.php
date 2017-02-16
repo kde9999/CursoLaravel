@@ -1,25 +1,24 @@
 @extends('admin.template.main')
 
-@section('title','Crear Usuario')
+@section('title','Editar Usuario' .$user->name)
 
 @section('content')
 
-  {!! Form::open(['route'=>'users.store','method'=>'POST'])   !!}
-
+{!!  Form::open(['route' => ['users.update',$user->id], 'method' => 'PUT']) !!}
 
       <div class="form-group">
         {!! Form::label('name','Nombre')!!}
-        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'nombre completo','required'])!!}
+        {!! Form::text('name',$user->name,['class'=>'form-control','placeholder'=>'nombre completo','required'])!!}
       </div>
 
       <div class="form-group">
         {!! Form::label('email','Correo Electronico')!!}
-        {!! Form::text('email',null,['class'=>'form-control','placeholder'=>'mail','required'])!!}
+        {!! Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'mail','required'])!!}
       </div>
 
       <div class="form-group">
         {!! Form::label('password','Contraseña')!!}
-        {!! Form::text('password',null,['class'=>'form-control','placeholder'=>'*****','required'])!!}
+        {!! Form::text('password',$user->password,['class'=>'form-control','placeholder'=>'*****','required'])!!}
       </div>
 
       <div class="form-group">

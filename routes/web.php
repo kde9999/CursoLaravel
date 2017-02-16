@@ -19,4 +19,18 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin'],function(){
   Route::resource('users','UsersController');
+  Route::get('users/{id}/destroy', ['uses' =>'UsersController@destroy',
+  'as'=>'admin.users.destroy'
+]);
+
+
+
+ Route::get('users/{user}/edit', ['uses' =>'UsersController@edit',
+ 'as'=>'admin.users.edit'
+ ]);
+
+
+// Route::PUT('users/{id}', ['uses' =>'UsersController@update',
+// 'as'=>'admin.users.update'
+// ]);
  });
