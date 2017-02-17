@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Laracasts\Flash\Flash;
+//use App\Http\Request\UserRequest;
+use App\Http\Requests\UserRequest;
+
 
 class UsersController extends Controller
 {
@@ -24,16 +27,16 @@ class UsersController extends Controller
 
 
 
-  public function store(Request $request){
-  //  dd('exito');
+  public function store(UserRequest $request){
+    //  dd('exito');
 
-    $user = new User($request->all());
-    $user->password =bcrypt( $request->password);
-    $user->save();
-    Flash::success("Registro exitoso")->important();
-    return redirect()->route('users.index');
-    //return $this->index();
-    //dd('Usuario  Creado');
+      $user = new User($request->all());
+      $user->password =bcrypt( $request->password);
+      $user->save();
+      Flash::success("Registro exitoso")->important();
+      return redirect()->route('users.index');
+      //return $this->index();
+      //dd('Usuario  Creado');
 
   }
 
@@ -65,22 +68,21 @@ class UsersController extends Controller
 
 
   public function update(Request $request,$id){
-   //dd($request->all());
+       //dd($request->all());
+       $user = User::find($id);
+       $user->name = $request->name;
+       $user->email = $request->email;
+       $user->type = $request->type;
+       $user->save();
+       Flash::success("Usuario Actualizado")->important();
 
-   $user = User::find($id);
-   $user->name = $request->name;
-   $user->email = $request->email;
-   $user->type = $request->type;
-   $user->save();
-   Flash::success("Usuario Actualizado")->important();
-
-   return redirect()->route('users.index');
-
+       return redirect()->route('users.index');
 
 
 
-    //return $this->index();
-    //dd('Usuario  Creado');
+
+        //return $this->index();
+        //dd('Usuario  Creado');
 
   }
 
