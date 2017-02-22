@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('users.index');
+  //  return redirect()->route('users.index');
+  return view('auth.login');
 });
 
 
@@ -33,13 +35,15 @@ Route::group(['prefix'=>'admin'],function(){
           ]);
 
 
-          Route::get('categories/{id}/destroy', ['uses' =>'CategoriesController@destroy',
-          'as'=>'admin.categories.destroy'
+          Route::get('categories/{id}/destroy',
+                  ['uses' =>'CategoriesController@destroy',
+                    'as'=>'admin.categories.destroy'
           ]);
 
 
-         Route::get('categories/{category}/edit', ['uses' =>'CategoriesController@edit',
-         'as'=>'admin.categories.edit'
+         Route::get('categories/{category}/edit',
+                      ['uses' =>'CategoriesController@edit',
+                      'as'=>'admin.categories.edit'
          ]);
 
 

@@ -4,33 +4,44 @@
 
 @section('content')
 
-<table class="table table-bordered">
-<thead>
-  <th>ID</th>
-  <th>Nombre</th>
-
-  <th>Accion</th>
-</thead>
-
-<tbody>
-  @foreach($categories as $category)
-  <tr>
-    <td>{{$category->id}}</td>
-    <td>{{$category->name}}</td>
-
-
-    <td><a href="{{route('admin.categories.destroy',$category->id)}}" onclick="return confirm('seguro que deseas eliminar')"class="btn btn-danger"></a> <a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning"></a></td>
-
-
-  </tr>
-  @endforeach
-</tbody>
+<div class="row">
+  <div class=" col-md-2"></div>
+  <div class="col-md-8">
 
 
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Administracion de Categorias</h3>
+  </div>
+  <div class="panel-body">
 
-</table>
+    <table class="table table-bordered">
+    <thead>
+      <th>ID</th>
+      <th>Nombre</th>
 
+      <th>Accion</th>
+    </thead>
+
+    <tbody>
+      @foreach($categories as $category)
+      <tr>
+        <td>{{$category->id}}</td>
+        <td>{{$category->name}}</td>
+        <td><a href="" onclick="return confirm('seguro que deseas eliminar')"class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+      </tr>
+      @endforeach
+    </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div class=" col-md-2"></div>
 
 
 @endsection

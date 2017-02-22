@@ -26,8 +26,6 @@ class UsersController extends Controller
   }
 
 
- 
-
   public function store(UserRequest $request){
     //  dd('exito');
 
